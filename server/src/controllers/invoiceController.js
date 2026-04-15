@@ -1,3 +1,5 @@
+import dns from "dns";
+dns.setDefaultResultOrder("ipv4first");
 const Invoice = require("../models/Invoice");
 const Client = require("../models/Client");
 const nodemailer = require("nodemailer");
@@ -345,11 +347,15 @@ const sendInvoice = async (req, res) => {
     const pdfBuffer = await generateInvoicePDFBuffer(invoice);
 
     const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.gmail.com",
+  port: 465,
   secure: true,
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
+  },
+  tls: {
+    family: 4,
   },
 });
     await transporter.sendMail({
