@@ -1,4 +1,4 @@
-import dns from "dns";
+const dns = require("dns");
 dns.setDefaultResultOrder("ipv4first");
 const Invoice = require("../models/Invoice");
 const Client = require("../models/Client");
