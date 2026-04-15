@@ -1,9 +1,10 @@
-const express = require("express");
-const cors = require("cors");
-const morgan = require("morgan");
-const authRoutes = require("./routes/authRoutes");
-const clientRoutes = require("./routes/clientRoutes");
-const invoiceRoutes = require("./routes/invoiceRoutes");
+import express from "express";
+import cors from "cors";
+import morgan from "morgan";
+
+import authRoutes from "./routes/authRoutes.js";
+import clientRoutes from "./routes/clientRoutes.js";
+import invoiceRoutes from "./routes/invoiceRoutes.js";
 
 const app = express();
 
@@ -19,4 +20,4 @@ app.use("/api/auth", authRoutes);
 app.use("/api/clients", clientRoutes);
 app.use("/api/invoices", invoiceRoutes);
 
-module.exports = app;
+export default app;

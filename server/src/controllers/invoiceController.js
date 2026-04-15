@@ -552,7 +552,7 @@ const deleteInvoice = async (req, res) => {
   }
 };
 
-module.exports = {
+export {
   createInvoice,
   getInvoices,
   getInvoiceById,

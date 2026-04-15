@@ -89,7 +89,7 @@ const deleteClient = async (req, res) => {
   }
 };
 
-module.exports = {
+export {
   createClient,
   getClients,
   getClientById,

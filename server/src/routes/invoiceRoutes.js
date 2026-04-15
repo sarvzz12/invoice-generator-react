@@ -1,13 +1,13 @@
-const express = require("express");
-const {
+import express from "express";
+import {
   createInvoice,
   getInvoices,
   getInvoiceById,
   updateInvoice,
   deleteInvoice,
   sendInvoice,
-} = require("../controllers/invoiceController");
-const { protect } = require("../middleware/authMiddleware");
+} from "../controllers/invoiceController.js";
+import { protect } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
@@ -20,4 +20,4 @@ router.put("/:id", updateInvoice);
 router.delete("/:id", deleteInvoice);
 router.post("/:id/send", sendInvoice);
 
-module.exports = router;
+export default router;

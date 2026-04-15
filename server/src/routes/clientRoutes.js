@@ -1,12 +1,12 @@
-const express = require("express");
-const {
+import express from "express";
+import {
   createClient,
   getClients,
   getClientById,
   updateClient,
   deleteClient,
-} = require("../controllers/clientController");
-const { protect } = require("../middleware/authMiddleware");
+} from "../controllers/clientController.js";
+import { protect } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
@@ -18,4 +18,4 @@ router.get("/:id", getClientById);
 router.put("/:id", updateClient);
 router.delete("/:id", deleteClient);
 
-module.exports = router;
+export default router;
