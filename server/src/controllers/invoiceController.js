@@ -1,9 +1,10 @@
-const dns = require("dns");
+import dns from "dns";
+import Invoice from "../models/Invoice.js";
+import Client from "../models/Client.js";
+import nodemailer from "nodemailer";
+import PDFDocument from "pdfkit";
+
 dns.setDefaultResultOrder("ipv4first");
-const Invoice = require("../models/Invoice");
-const Client = require("../models/Client");
-const nodemailer = require("nodemailer");
-const PDFDocument = require("pdfkit");
 
 // ================= CALCULATE =================
 const calculateTotals = (items = [], taxRate = 0) => {

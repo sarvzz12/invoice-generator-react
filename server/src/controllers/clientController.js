@@ -1,4 +1,4 @@
-const Client = require("../models/Client");
+import Client from "../models/Client.js";
 
 const createClient = async (req, res) => {
   try {
@@ -18,7 +18,10 @@ const createClient = async (req, res) => {
 
 const getClients = async (req, res) => {
   try {
-    const clients = await Client.find({ userId: req.user.userId }).sort({ createdAt: -1 });
+    const clients = await Client.find({
+      userId: req.user.userId,
+    }).sort({ createdAt: -1 });
+
     res.status(200).json(clients);
   } catch (error) {
     res.status(500).json({
@@ -51,9 +54,15 @@ const getClientById = async (req, res) => {
 const updateClient = async (req, res) => {
   try {
     const client = await Client.findOneAndUpdate(
-      { _id: req.params.id, userId: req.user.userId },
+      {
+        _id: req.params.id,
+        userId: req.user.userId,
+      },
       req.body,
-      { new: true, runValidators: true }
+      {
+        new: true,
+        runValidators: true,
+      }
     );
 
     if (!client) {
