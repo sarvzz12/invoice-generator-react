@@ -1,3 +1,4 @@
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
@@ -50,6 +51,9 @@ const Login = () => {
           />
 
           <button type="submit">Login</button>
+          <p className="auth-switch-text">
+  Don&apos;t have an account? <Link to="/register">Register</Link>
+</p>
         </form>
       </div>
     </div>
